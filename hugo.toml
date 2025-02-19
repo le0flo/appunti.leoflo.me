@@ -1,3 +1,32 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = 'https://appunti.leoflo.me'
+languageCode = 'it-IT'
+title = 'Appunti'
+theme = 'hugo-book'
+
+disablePathToLower = true
+
+[markup.tableOfContents]
+endLevel = 4
+startLevel = 1
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.goldmark.extensions.passthrough]
+enable = true
+
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [['$$', '$$']]
+inline = [['$', '$']]
+
+[params]
+math = true
+BookTheme = 'auto'
+BookToC = true
+#BookLogo = 'logo.png'
+BookSection = '*'
+BookDateFormat = 'Jan 2, 2006'
+BookSearch = true
+
+[params.meta]
+favicon = false

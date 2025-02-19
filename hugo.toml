@@ -16,8 +16,8 @@ unsafe = true
 enable = true
 
 [markup.goldmark.extensions.passthrough.delimiters]
-block = [['$$', '$$']]
-inline = [['$', '$']]
+block = [['\$\$', '\$\$']]
+inline = [['\$', '\$']]
 
 [params]
 math = true
@@ -27,6 +27,8 @@ BookLogo = 'favicon.png'
 BookSection = 'appunti'
 BookDateFormat = 'Jan 2, 2006'
 BookSearch = true
+BookRepo = 'https://github.com/le0flo/appunti'
+BookCommitPath = 'commit'
 
 [params.meta]
 favicon = false

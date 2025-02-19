@@ -16,8 +16,8 @@ unsafe = true
 enable = true
 
 [markup.goldmark.extensions.passthrough.delimiters]
-block = [['\$\$', '\$\$']]
-inline = [['\$', '\$']]
+block = [['$$', '$$']]
+inline = [['$', '$']]
 
 [params]
 math = true

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="it-IT" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Data una funzione $f(x)$, troviamo una funzione $F(x)$ tale che $DF(x) = f(x)$.
+
+  Integrale
+  #
+
+$$
+DF = D(F &#43; c) \implies f = f &#43; 0
+$$
+  Notazioni
+  #
+
+
+$\int f$
+$\int f(x)dx$
+$\int fdx$
+
+
+  Integrali comuni
+  #
+
+
+$\int x^\alpha dx = \frac{x^{\alpha &#43; 1}}{\alpha &#43; 1} &#43; c : \alpha \neq -1$
+$\int \frac{1}{x} dx = log|x| &#43; c : \alpha = -1$
+$\int e^x dx = e^x &#43; c$
+$\int sin(x) dx = -cos(x) &#43; c$
+$\int cos(x) dx = sin(x) &#43; c$
+$\int \frac{1}{\sqrt{1 - x^2}} dx = arcsin(x) &#43; c$
+$\int -\frac{1}{\sqrt{1 - x^2}} dx = arccos(x) &#43; c$
+$\int \frac{1}{1 &#43; x^2} dx = arctan(x) &#43; c$
+$f(x), g(x); \alpha, \beta \in \mathbb{R} \rightarrow \int (\alpha f &#43; \beta g)dx = \alpha \int fdx &#43; \beta \int gdx$
+
+
+  Integrazione per parti
+  #
+
+$$
+\int (DF) * G dx = FG - \int F * (DG) dx
+$$
+  Cambiamento di variabile
+  #
+
+$$
+\int DF(G(x)) * DG(x) dx = DF(G(x)) &#43; c
+$$
+  Integrali generalizzati
+  #
+
+Si possono avere due casi principali quando si parla di integrazione:">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/appunti/Analisi-T1/Integrali/">
+  <meta property="og:site_name" content="Appunti">
+  <meta property="og:title" content="Appunti">
+  <meta property="og:description" content="Data una funzione $f(x)$, troviamo una funzione $F(x)$ tale che $DF(x) = f(x)$.
+Integrale # $$ DF = D(F &#43; c) \implies f = f &#43; 0 $$ Notazioni # $\int f$ $\int f(x)dx$ $\int fdx$ Integrali comuni # $\int x^\alpha dx = \frac{x^{\alpha &#43; 1}}{\alpha &#43; 1} &#43; c : \alpha \neq -1$ $\int \frac{1}{x} dx = log|x| &#43; c : \alpha = -1$ $\int e^x dx = e^x &#43; c$ $\int sin(x) dx = -cos(x) &#43; c$ $\int cos(x) dx = sin(x) &#43; c$ $\int \frac{1}{\sqrt{1 - x^2}} dx = arcsin(x) &#43; c$ $\int -\frac{1}{\sqrt{1 - x^2}} dx = arccos(x) &#43; c$ $\int \frac{1}{1 &#43; x^2} dx = arctan(x) &#43; c$ $f(x), g(x); \alpha, \beta \in \mathbb{R} \rightarrow \int (\alpha f &#43; \beta g)dx = \alpha \int fdx &#43; \beta \int gdx$ Integrazione per parti # $$ \int (DF) * G dx = FG - \int F * (DG) dx $$ Cambiamento di variabile # $$ \int DF(G(x)) * DG(x) dx = DF(G(x)) &#43; c $$ Integrali generalizzati # Si possono avere due casi principali quando si parla di integrazione:">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="appunti">
+<title>Integrali | Appunti</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/appunti/Analisi-T1/Integrali/">
+<link rel="stylesheet" href="/book.min.434035e7885c7f5d12818bd9f111cf1a0925c6fb78382667381c3d5eda3fb4f1.css" integrity="sha256-Q0A154hcf10SgYvZ8RHPGgklxvt4OCZnOBw9Xto/tPE=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.3c043834d9202359e6b7f84d76e7d19a320abec12f87dbed052ed3a3805fb6aa.js" integrity="sha256-PAQ4NNkgI1nmt/hNdufRmjIKvsEvh9vtBS7To4Bftqo=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$']],  
+      inlineMath: [['$', '$']]      
+    },
+    loader:{
+      load: ['ui/safe']
+    },
+  };
+</script>
+<link rel="stylesheet" type="text/css" href="math.css">
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Appunti</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Anelli/" class="">Anelli</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Combinazione-lineare/" class="">Combinazione Lineare</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Funzioni/" class="">Funzioni</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Gruppi/" class="">Gruppi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Insiemi/" class="">Insiemi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Matrici/" class="">Matrici</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Numeri-complessi/" class="">Numeri Complessi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Sistemi/" class="">Sistemi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Vettori/" class="">Vettori</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Derivate/" class="">Derivate</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Equazioni-differenziali/" class="">Equazioni Differenziali</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Funzioni/" class="">Funzioni</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Integrali/" class="active">Integrali</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Limiti/" class="">Limiti</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Principi/" class="">Principi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Serie/" class="">Serie</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Taylor/" class="">Taylor</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T2/Spazi-vettoriali/" class="">Spazi Vettoriali</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Integrali</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#integrale">Integrale</a></li>
+            <li><a href="#notazioni">Notazioni</a></li>
+            <li><a href="#integrali-comuni">Integrali comuni</a></li>
+            <li><a href="#integrazione-per-parti">Integrazione per parti</a></li>
+            <li><a href="#cambiamento-di-variabile">Cambiamento di variabile</a></li>
+            <li><a href="#integrali-generalizzati">Integrali generalizzati</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><p>Data una funzione $f(x)$, troviamo una funzione $F(x)$ tale che $DF(x) = f(x)$.</p>
+<h3 id="integrale">
+  Integrale
+  <a class="anchor" href="#integrale">#</a>
+</h3>
+$$
+DF = D(F + c) \implies f = f + 0
+$$<h3 id="notazioni">
+  Notazioni
+  <a class="anchor" href="#notazioni">#</a>
+</h3>
+<ul>
+<li>$\int f$</li>
+<li>$\int f(x)dx$</li>
+<li>$\int fdx$</li>
+</ul>
+<h3 id="integrali-comuni">
+  Integrali comuni
+  <a class="anchor" href="#integrali-comuni">#</a>
+</h3>
+<ul>
+<li>$\int x^\alpha dx = \frac{x^{\alpha + 1}}{\alpha + 1} + c : \alpha \neq -1$</li>
+<li>$\int \frac{1}{x} dx = log|x| + c : \alpha = -1$</li>
+<li>$\int e^x dx = e^x + c$</li>
+<li>$\int sin(x) dx = -cos(x) + c$</li>
+<li>$\int cos(x) dx = sin(x) + c$</li>
+<li>$\int \frac{1}{\sqrt{1 - x^2}} dx = arcsin(x) + c$</li>
+<li>$\int -\frac{1}{\sqrt{1 - x^2}} dx = arccos(x) + c$</li>
+<li>$\int \frac{1}{1 + x^2} dx = arctan(x) + c$</li>
+<li>$f(x), g(x); \alpha, \beta \in \mathbb{R} \rightarrow \int (\alpha f + \beta g)dx = \alpha \int fdx + \beta \int gdx$</li>
+</ul>
+<h3 id="integrazione-per-parti">
+  Integrazione per parti
+  <a class="anchor" href="#integrazione-per-parti">#</a>
+</h3>
+$$
+\int (DF) * G dx = FG - \int F * (DG) dx
+$$<h3 id="cambiamento-di-variabile">
+  Cambiamento di variabile
+  <a class="anchor" href="#cambiamento-di-variabile">#</a>
+</h3>
+$$
+\int DF(G(x)) * DG(x) dx = DF(G(x)) + c
+$$<h3 id="integrali-generalizzati">
+  Integrali generalizzati
+  <a class="anchor" href="#integrali-generalizzati">#</a>
+</h3>
+<p>Si possono avere due casi principali quando si parla di integrazione:</p>
+<ul>
+<li>Integranda non limitata</li>
+<li>Integranda $[a, +\infty]$, $[-\infty, b]$, $\mathbb{R}$</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#integrale">Integrale</a></li>
+            <li><a href="#notazioni">Notazioni</a></li>
+            <li><a href="#integrali-comuni">Integrali comuni</a></li>
+            <li><a href="#integrazione-per-parti">Integrazione per parti</a></li>
+            <li><a href="#cambiamento-di-variabile">Cambiamento di variabile</a></li>
+            <li><a href="#integrali-generalizzati">Integrali generalizzati</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

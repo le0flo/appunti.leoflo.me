@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="it-IT" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Successioni
+  #
+
+$$
+f : \mathbb{N} \to \mathbb{R}
+$$
+I termini della successione sono notati nella seguente maniera:
+
+$f(0) = a_0$
+$f(1) = a_1$
+$f(2) = a_2$
+La successione può essere:
+Superiormente limitata
+Inferiormente limitata
+Limitata
+
+
+  Serie
+  #
+
+Sia $(a_n)_n$ una successione di numeri reali. Definiamo la successione $(s_n)_n$ associata:
+
+$s_0 = a_0$
+$s_1 = a_0 &#43; a_1$
+$s_2 = a_0 &#43; a_1 &#43; a_2$
+$\vdots$
+La successione delle somme parziali si chiama serie e si indica:
+$$
+\sum_{n = 0}^{&#43;\infty} a_n \text{ oppure } \sum_{}^{} a_n
+$$
+I numeri $a_n$ si dicono termini della serie. Una serie può essere:
+Convergente: $\exists \lim_{n \to &#43;\infty} s_n = A \in \mathbb{R}$
+Divergente $\exists \lim_{n \to \infty} s_n = \begin{cases} -\infty\\ &#43;\infty\end{cases}$
+Indeterminata $\nexists  \lim_{n \to &#43;\infty} s_n$
+Data una serie $\sum_{}^{} a_n$, se cambio un numero finito di termini, la serie generata manterrà il carattere dell&rsquo;originale.
+
+
+  Serie geometrica
+  #
+
+$$
+R_n := q^n \Rightarrow \sum_{n = 0}^{&#43;\infty} q^n
+$$$$
+\sum_{n}^{} q^n = \frac{1}{1 - q}
+$$
+  Convergenza di una serie
+  #
+
+Una serie converge se e soltanto se $a_n \to 0$. La condizione precedente è necessaria ma non sufficiente per affermare la convergenza di una serie.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/appunti/Analisi-T1/Serie/">
+  <meta property="og:site_name" content="Appunti">
+  <meta property="og:title" content="Appunti">
+  <meta property="og:description" content="Successioni # $$ f : \mathbb{N} \to \mathbb{R} $$ I termini della successione sono notati nella seguente maniera:
+$f(0) = a_0$ $f(1) = a_1$ $f(2) = a_2$ La successione può essere: Superiormente limitata Inferiormente limitata Limitata Serie # Sia $(a_n)_n$ una successione di numeri reali. Definiamo la successione $(s_n)_n$ associata:
+$s_0 = a_0$ $s_1 = a_0 &#43; a_1$ $s_2 = a_0 &#43; a_1 &#43; a_2$ $\vdots$ La successione delle somme parziali si chiama serie e si indica: $$ \sum_{n = 0}^{&#43;\infty} a_n \text{ oppure } \sum_{}^{} a_n $$ I numeri $a_n$ si dicono termini della serie. Una serie può essere: Convergente: $\exists \lim_{n \to &#43;\infty} s_n = A \in \mathbb{R}$ Divergente $\exists \lim_{n \to \infty} s_n = \begin{cases} -\infty\\ &#43;\infty\end{cases}$ Indeterminata $\nexists \lim_{n \to &#43;\infty} s_n$ Data una serie $\sum_{}^{} a_n$, se cambio un numero finito di termini, la serie generata manterrà il carattere dell’originale. Serie geometrica # $$ R_n := q^n \Rightarrow \sum_{n = 0}^{&#43;\infty} q^n $$$$ \sum_{n}^{} q^n = \frac{1}{1 - q} $$ Convergenza di una serie # Una serie converge se e soltanto se $a_n \to 0$. La condizione precedente è necessaria ma non sufficiente per affermare la convergenza di una serie.">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="appunti">
+<title>Serie | Appunti</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/appunti/Analisi-T1/Serie/">
+<link rel="stylesheet" href="/book.min.434035e7885c7f5d12818bd9f111cf1a0925c6fb78382667381c3d5eda3fb4f1.css" integrity="sha256-Q0A154hcf10SgYvZ8RHPGgklxvt4OCZnOBw9Xto/tPE=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.3c043834d9202359e6b7f84d76e7d19a320abec12f87dbed052ed3a3805fb6aa.js" integrity="sha256-PAQ4NNkgI1nmt/hNdufRmjIKvsEvh9vtBS7To4Bftqo=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$']],  
+      inlineMath: [['$', '$']]      
+    },
+    loader:{
+      load: ['ui/safe']
+    },
+  };
+</script>
+<link rel="stylesheet" type="text/css" href="math.css">
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Appunti</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Anelli/" class="">Anelli</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Combinazione-lineare/" class="">Combinazione Lineare</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Funzioni/" class="">Funzioni</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Gruppi/" class="">Gruppi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Insiemi/" class="">Insiemi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Matrici/" class="">Matrici</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Numeri-complessi/" class="">Numeri Complessi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Sistemi/" class="">Sistemi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Vettori/" class="">Vettori</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Derivate/" class="">Derivate</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Equazioni-differenziali/" class="">Equazioni Differenziali</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Funzioni/" class="">Funzioni</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Integrali/" class="">Integrali</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Limiti/" class="">Limiti</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Principi/" class="">Principi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Serie/" class="active">Serie</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Taylor/" class="">Taylor</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T2/Spazi-vettoriali/" class="">Spazi Vettoriali</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Serie</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#successioni">Successioni</a></li>
+            <li><a href="#serie">Serie</a></li>
+            <li><a href="#serie-geometrica">Serie geometrica</a></li>
+            <li><a href="#convergenza-di-una-serie">Convergenza di una serie</a></li>
+            <li><a href="#criterio-di-condensazione">Criterio di condensazione</a></li>
+            <li><a href="#criterio-di-condensazione-1">Criterio di condensazione</a></li>
+            <li><a href="#criterio-del-valore-assoluto">Criterio del valore assoluto</a></li>
+            <li><a href="#criterio-della-radice">Criterio della radice</a></li>
+            <li><a href="#criterio-del-rapporto">Criterio del rapporto</a></li>
+            <li><a href="#criterio-di-leibniz">Criterio di Leibniz</a></li>
+            <li><a href="#criterio-del-confronto-asintotico">Criterio del confronto asintotico</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h3 id="successioni">
+  Successioni
+  <a class="anchor" href="#successioni">#</a>
+</h3>
+$$
+f : \mathbb{N} \to \mathbb{R}
+$$<p>
+I termini della successione sono notati nella seguente maniera:</p>
+<ul>
+<li>$f(0) = a_0$</li>
+<li>$f(1) = a_1$</li>
+<li>$f(2) = a_2$
+La successione può essere:</li>
+<li>Superiormente limitata</li>
+<li>Inferiormente limitata</li>
+<li>Limitata</li>
+</ul>
+<h3 id="serie">
+  Serie
+  <a class="anchor" href="#serie">#</a>
+</h3>
+<p>Sia $(a_n)_n$ una successione di numeri reali. Definiamo la successione $(s_n)_n$ associata:</p>
+<ul>
+<li>$s_0 = a_0$</li>
+<li>$s_1 = a_0 + a_1$</li>
+<li>$s_2 = a_0 + a_1 + a_2$</li>
+<li>$\vdots$
+La successione delle somme parziali si chiama serie e si indica:
+$$
+\sum_{n = 0}^{+\infty} a_n \text{ oppure } \sum_{}^{} a_n
+$$
+I numeri $a_n$ si dicono termini della serie. Una serie può essere:</li>
+<li>Convergente: $\exists \lim_{n \to +\infty} s_n = A \in \mathbb{R}$</li>
+<li>Divergente $\exists \lim_{n \to \infty} s_n = \begin{cases} -\infty\\ +\infty\end{cases}$</li>
+<li>Indeterminata $\nexists  \lim_{n \to +\infty} s_n$
+Data una serie $\sum_{}^{} a_n$, se cambio un numero finito di termini, la serie generata manterrà il carattere dell&rsquo;originale.</li>
+</ul>
+<h3 id="serie-geometrica">
+  Serie geometrica
+  <a class="anchor" href="#serie-geometrica">#</a>
+</h3>
+$$
+R_n := q^n \Rightarrow \sum_{n = 0}^{+\infty} q^n
+$$$$
+\sum_{n}^{} q^n = \frac{1}{1 - q}
+$$<h3 id="convergenza-di-una-serie">
+  Convergenza di una serie
+  <a class="anchor" href="#convergenza-di-una-serie">#</a>
+</h3>
+<p>Una serie converge se e soltanto se $a_n \to 0$. La condizione precedente è necessaria ma non sufficiente per affermare la convergenza di una serie.</p>
+<h3 id="criterio-di-condensazione">
+  Criterio di condensazione
+  <a class="anchor" href="#criterio-di-condensazione">#</a>
+</h3>
+$$
+\forall n : 0 \leq a_n \leq b_n
+$$<ul>
+<li>se $b_n$ converge, anche $a_n$ converge.</li>
+<li>se $a_n$ diverge, anche $b_n$ diverge.</li>
+</ul>
+<h3 id="criterio-di-condensazione-1">
+  Criterio di condensazione
+  <a class="anchor" href="#criterio-di-condensazione-1">#</a>
+</h3>
+<p>$\sum_{n}^{} a_n$ converge se e soltanto se $\sum_{k = 0}^{+\infty} 2^k a_2k$ converge.</p>
+<h3 id="criterio-del-valore-assoluto">
+  Criterio del valore assoluto
+  <a class="anchor" href="#criterio-del-valore-assoluto">#</a>
+</h3>
+$$
+|\sum_{n}^{} a_n| = \sum_{n}^{} |a_n|
+$$<p>
+Una serie che viene dichiarata convergente usando questo criterio è detta assolutamente convergente.</p>
+<h3 id="criterio-della-radice">
+  Criterio della radice
+  <a class="anchor" href="#criterio-della-radice">#</a>
+</h3>
+<p>$(a_n)_n$
+Se $\exists \space \lim_{n \to +\infty} \sqrt[n]{|a_n|} = L$, allora:</p>
+<ul>
+<li>se $L < 1$ allora $\sum_{}^{} a_n$ converge</li>
+<li>se $L > 1$ allora $\sum_{}^{} a_n$ non converge</li>
+<li>se $L = 1$ allora non si può concludere nulla</li>
+</ul>
+<h3 id="criterio-del-rapporto">
+  Criterio del rapporto
+  <a class="anchor" href="#criterio-del-rapporto">#</a>
+</h3>
+<p>$(a_n)_n, a_n \neq 0$
+Se $\exists \space \lim_{n \to +\infty} |\frac{a_n + 1}{a_n}| = L$, allora:</p>
+<ul>
+<li>se $L < 1$ allora $\sum_{}^{} a_n$ converge</li>
+<li>se $L > 1$ allora $\sum_{}^{} a_n$ non converge</li>
+<li>se $L = 1$ allora non si può concludere nulla</li>
+</ul>
+<h3 id="criterio-di-leibniz">
+  Criterio di Leibniz
+  <a class="anchor" href="#criterio-di-leibniz">#</a>
+</h3>
+<p>Se $(a_j)_j : a_j > 0 : a_j \geq a_j + 1 : \lim_{j \to +\infty} a_j = 0$, allora $\sum_{j = 1}^{+\infty} (-1)^j * a_j$ converge.</p>
+<h3 id="criterio-del-confronto-asintotico">
+  Criterio del confronto asintotico
+  <a class="anchor" href="#criterio-del-confronto-asintotico">#</a>
+</h3>
+<p>$(a_n)_n, \forall n : a_n \geq 0$
+$(b_n)_n, \forall n : b_n > 0$
+Se $\lim_{n \to +\infty} \frac{a_n}{b_n} = L > 0$, allora:</p>
+<ul>
+<li>$\sum_{n}^{} a_n < +\infty \Leftrightarrow \sum_{n}^{} b_n < +\infty$, entrambe convergono</li>
+<li>$\sum_{n}^{} a_n = +\infty \Leftrightarrow \sum_{n}^{} b_n = +\infty$, entrambe divergono
+$(a_n)_n, \forall n : a_n \geq 0$
+$p = n * a_n$
+Se $\lim_{n \to +\infty} \frac{a_n}{\frac{1}{n^p}} = L > 0$, allora $\sum_{n}^{} a_n$ converge se $\sum_{n}^{} \frac{1}{n^p}$ converge; possibile converge se $p > 1$.</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#successioni">Successioni</a></li>
+            <li><a href="#serie">Serie</a></li>
+            <li><a href="#serie-geometrica">Serie geometrica</a></li>
+            <li><a href="#convergenza-di-una-serie">Convergenza di una serie</a></li>
+            <li><a href="#criterio-di-condensazione">Criterio di condensazione</a></li>
+            <li><a href="#criterio-di-condensazione-1">Criterio di condensazione</a></li>
+            <li><a href="#criterio-del-valore-assoluto">Criterio del valore assoluto</a></li>
+            <li><a href="#criterio-della-radice">Criterio della radice</a></li>
+            <li><a href="#criterio-del-rapporto">Criterio del rapporto</a></li>
+            <li><a href="#criterio-di-leibniz">Criterio di Leibniz</a></li>
+            <li><a href="#criterio-del-confronto-asintotico">Criterio del confronto asintotico</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

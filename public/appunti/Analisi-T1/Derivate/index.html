@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="it-IT" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Rapporto incrementale
+  #
+
+$$
+\Delta f = \frac{f(x &#43; h) - f(x)}{h}
+$$
+  Derivata
+  #
+
+$$
+\exists \space finito \lim_{\Delta x \to 0} \frac{f(x &#43; h) - f(x)}{h}
+$$
+  Notazioni
+  #
+
+
+$Df$
+$\frac{df}{dx}$
+$f&#39;$
+$f^{(1)}$
+$\dot{f}$
+Se $f(x)$ è derivabile $\implies f(x)$ è continua.
+
+
+  Derivate di grado superiore
+  #
+
+$$
+Df(x) \to D(Df(x)) = D^2f(x)
+$$
+  Notazioni per derivate di grado superiore
+  #
+
+
+$\frac{d^2f}{dx^2} = \frac{d}{dx} * \frac{df}{dx}$
+$f&#39;&#39;$
+$f^{(2)}$
+$\dot{f}$
+$$
+D^nf = \frac{d^nf}{dx^n} = f^{(n)}
+$$
+$D^2f \geq 0 \implies Df$ è crescente, la funzione è convessa.
+$D^2f \leq 0 \implies Df$ è decrescente, la funzione è concava.
+
+
+  Derivate comuni
+  #
+
+
+$Dc = 0$
+$Dcx = c$
+$D(ax^2 &#43; bx &#43; c) = 2ax &#43; b$
+$Dx^n = nx^{n - 1}$
+$D\sin{x} = \cos{x}$
+$D\cos{x} = -\sin{x}$
+$D\tan{x} = \frac{1}{\cos^2{x}} = 1 &#43; \tan^2{x}$
+$De^x = e^x$
+$D\ln{x} = \frac{1}{x}$
+$D\arcsin{x} = \frac{1}{\sqrt{1 - x^2}}$
+$D\arccos{x} = -\frac{1}{\sqrt{1 - x^2}}$
+$D\arctan{x} = \frac{1}{1 &#43; x^2}$
+$D\sinh{x} = \frac{e^x &#43; e^{-x}}{2} = \cosh{x}$
+$D\cosh{x} = \frac{e^x - e^{-x}}{2} = \sinh{x}$
+$D\tanh{x} = \frac{\cosh^2{x} - \sinh^2{x}}{\cosh^2{x}} = 1 - \tanh^2{x}$
+
+
+  Regole di calcolo
+  #
+
+
+$f(x), g(x) \rightarrow D(f &#43; g) = Df &#43; Dg$
+$f(x), c \rightarrow D(cf) = c * Df$
+$f(x) = \sum_{n}^{k = 0} a_k x^k \rightarrow D(f) = \sum_{n}^{k = 1} a_k k x^{k - 1}$
+$f(x), g(x) \rightarrow D(f * g) = (Df)g &#43; f(Dg)$
+$f(x), g(x) \rightarrow D(\frac{f}{g}) = \frac{(Df)g - f(Dg)}{g^2}$
+$f(x), g(x) \rightarrow D(f o g) = (Df(g)) * Dg$
+$f(x) \rightarrow Df^{-1} = \frac{1}{Df(f^{-1}(x))}$
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/appunti/Analisi-T1/Derivate/">
+  <meta property="og:site_name" content="Appunti">
+  <meta property="og:title" content="Appunti">
+  <meta property="og:description" content="Rapporto incrementale # $$ \Delta f = \frac{f(x &#43; h) - f(x)}{h} $$ Derivata # $$ \exists \space finito \lim_{\Delta x \to 0} \frac{f(x &#43; h) - f(x)}{h} $$ Notazioni # $Df$ $\frac{df}{dx}$ $f&#39;$ $f^{(1)}$ $\dot{f}$ Se $f(x)$ è derivabile $\implies f(x)$ è continua. Derivate di grado superiore # $$ Df(x) \to D(Df(x)) = D^2f(x) $$ Notazioni per derivate di grado superiore # $\frac{d^2f}{dx^2} = \frac{d}{dx} * \frac{df}{dx}$ $f&#39;&#39;$ $f^{(2)}$ $\dot{f}$ $$ D^nf = \frac{d^nf}{dx^n} = f^{(n)} $$ $D^2f \geq 0 \implies Df$ è crescente, la funzione è convessa. $D^2f \leq 0 \implies Df$ è decrescente, la funzione è concava. Derivate comuni # $Dc = 0$ $Dcx = c$ $D(ax^2 &#43; bx &#43; c) = 2ax &#43; b$ $Dx^n = nx^{n - 1}$ $D\sin{x} = \cos{x}$ $D\cos{x} = -\sin{x}$ $D\tan{x} = \frac{1}{\cos^2{x}} = 1 &#43; \tan^2{x}$ $De^x = e^x$ $D\ln{x} = \frac{1}{x}$ $D\arcsin{x} = \frac{1}{\sqrt{1 - x^2}}$ $D\arccos{x} = -\frac{1}{\sqrt{1 - x^2}}$ $D\arctan{x} = \frac{1}{1 &#43; x^2}$ $D\sinh{x} = \frac{e^x &#43; e^{-x}}{2} = \cosh{x}$ $D\cosh{x} = \frac{e^x - e^{-x}}{2} = \sinh{x}$ $D\tanh{x} = \frac{\cosh^2{x} - \sinh^2{x}}{\cosh^2{x}} = 1 - \tanh^2{x}$ Regole di calcolo # $f(x), g(x) \rightarrow D(f &#43; g) = Df &#43; Dg$ $f(x), c \rightarrow D(cf) = c * Df$ $f(x) = \sum_{n}^{k = 0} a_k x^k \rightarrow D(f) = \sum_{n}^{k = 1} a_k k x^{k - 1}$ $f(x), g(x) \rightarrow D(f * g) = (Df)g &#43; f(Dg)$ $f(x), g(x) \rightarrow D(\frac{f}{g}) = \frac{(Df)g - f(Dg)}{g^2}$ $f(x), g(x) \rightarrow D(f o g) = (Df(g)) * Dg$ $f(x) \rightarrow Df^{-1} = \frac{1}{Df(f^{-1}(x))}$">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="appunti">
+<title>Derivate | Appunti</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/appunti/Analisi-T1/Derivate/">
+<link rel="stylesheet" href="/book.min.434035e7885c7f5d12818bd9f111cf1a0925c6fb78382667381c3d5eda3fb4f1.css" integrity="sha256-Q0A154hcf10SgYvZ8RHPGgklxvt4OCZnOBw9Xto/tPE=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.3c043834d9202359e6b7f84d76e7d19a320abec12f87dbed052ed3a3805fb6aa.js" integrity="sha256-PAQ4NNkgI1nmt/hNdufRmjIKvsEvh9vtBS7To4Bftqo=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$']],  
+      inlineMath: [['$', '$']]      
+    },
+    loader:{
+      load: ['ui/safe']
+    },
+  };
+</script>
+<link rel="stylesheet" type="text/css" href="math.css">
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Appunti</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Anelli/" class="">Anelli</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Combinazione-lineare/" class="">Combinazione Lineare</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Funzioni/" class="">Funzioni</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Gruppi/" class="">Gruppi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Insiemi/" class="">Insiemi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Matrici/" class="">Matrici</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Numeri-complessi/" class="">Numeri Complessi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Sistemi/" class="">Sistemi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Algebra-e-Geometria/Vettori/" class="">Vettori</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Derivate/" class="active">Derivate</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Equazioni-differenziali/" class="">Equazioni Differenziali</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Funzioni/" class="">Funzioni</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Integrali/" class="">Integrali</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Limiti/" class="">Limiti</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Principi/" class="">Principi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Serie/" class="">Serie</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T1/Taylor/" class="">Taylor</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/appunti/Analisi-T2/Spazi-vettoriali/" class="">Spazi Vettoriali</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Derivate</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#rapporto-incrementale">Rapporto incrementale</a></li>
+            <li><a href="#derivata">Derivata</a></li>
+            <li><a href="#notazioni">Notazioni</a></li>
+            <li><a href="#derivate-di-grado-superiore">Derivate di grado superiore</a></li>
+            <li><a href="#notazioni-per-derivate-di-grado-superiore">Notazioni per derivate di grado superiore</a></li>
+            <li><a href="#derivate-comuni">Derivate comuni</a></li>
+            <li><a href="#regole-di-calcolo">Regole di calcolo</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h3 id="rapporto-incrementale">
+  Rapporto incrementale
+  <a class="anchor" href="#rapporto-incrementale">#</a>
+</h3>
+$$
+\Delta f = \frac{f(x + h) - f(x)}{h}
+$$<h3 id="derivata">
+  Derivata
+  <a class="anchor" href="#derivata">#</a>
+</h3>
+$$
+\exists \space finito \lim_{\Delta x \to 0} \frac{f(x + h) - f(x)}{h}
+$$<h3 id="notazioni">
+  Notazioni
+  <a class="anchor" href="#notazioni">#</a>
+</h3>
+<ul>
+<li>$Df$</li>
+<li>$\frac{df}{dx}$</li>
+<li>$f'$</li>
+<li>$f^{(1)}$</li>
+<li>$\dot{f}$
+Se $f(x)$ è derivabile $\implies f(x)$ è continua.</li>
+</ul>
+<h3 id="derivate-di-grado-superiore">
+  Derivate di grado superiore
+  <a class="anchor" href="#derivate-di-grado-superiore">#</a>
+</h3>
+$$
+Df(x) \to D(Df(x)) = D^2f(x)
+$$<h3 id="notazioni-per-derivate-di-grado-superiore">
+  Notazioni per derivate di grado superiore
+  <a class="anchor" href="#notazioni-per-derivate-di-grado-superiore">#</a>
+</h3>
+<ul>
+<li>$\frac{d^2f}{dx^2} = \frac{d}{dx} * \frac{df}{dx}$</li>
+<li>$f''$</li>
+<li>$f^{(2)}$</li>
+<li>$\dot{f}$
+$$
+D^nf = \frac{d^nf}{dx^n} = f^{(n)}
+$$
+$D^2f \geq 0 \implies Df$ è crescente, la funzione è convessa.
+$D^2f \leq 0 \implies Df$ è decrescente, la funzione è concava.</li>
+</ul>
+<h3 id="derivate-comuni">
+  Derivate comuni
+  <a class="anchor" href="#derivate-comuni">#</a>
+</h3>
+<ul>
+<li>$Dc = 0$</li>
+<li>$Dcx = c$</li>
+<li>$D(ax^2 + bx + c) = 2ax + b$</li>
+<li>$Dx^n = nx^{n - 1}$</li>
+<li>$D\sin{x} = \cos{x}$</li>
+<li>$D\cos{x} = -\sin{x}$</li>
+<li>$D\tan{x} = \frac{1}{\cos^2{x}} = 1 + \tan^2{x}$</li>
+<li>$De^x = e^x$</li>
+<li>$D\ln{x} = \frac{1}{x}$</li>
+<li>$D\arcsin{x} = \frac{1}{\sqrt{1 - x^2}}$</li>
+<li>$D\arccos{x} = -\frac{1}{\sqrt{1 - x^2}}$</li>
+<li>$D\arctan{x} = \frac{1}{1 + x^2}$</li>
+<li>$D\sinh{x} = \frac{e^x + e^{-x}}{2} = \cosh{x}$</li>
+<li>$D\cosh{x} = \frac{e^x - e^{-x}}{2} = \sinh{x}$</li>
+<li>$D\tanh{x} = \frac{\cosh^2{x} - \sinh^2{x}}{\cosh^2{x}} = 1 - \tanh^2{x}$</li>
+</ul>
+<h3 id="regole-di-calcolo">
+  Regole di calcolo
+  <a class="anchor" href="#regole-di-calcolo">#</a>
+</h3>
+<ul>
+<li>$f(x), g(x) \rightarrow D(f + g) = Df + Dg$</li>
+<li>$f(x), c \rightarrow D(cf) = c * Df$</li>
+<li>$f(x) = \sum_{n}^{k = 0} a_k x^k \rightarrow D(f) = \sum_{n}^{k = 1} a_k k x^{k - 1}$</li>
+<li>$f(x), g(x) \rightarrow D(f * g) = (Df)g + f(Dg)$</li>
+<li>$f(x), g(x) \rightarrow D(\frac{f}{g}) = \frac{(Df)g - f(Dg)}{g^2}$</li>
+<li>$f(x), g(x) \rightarrow D(f o g) = (Df(g)) * Dg$</li>
+<li>$f(x) \rightarrow Df^{-1} = \frac{1}{Df(f^{-1}(x))}$</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#rapporto-incrementale">Rapporto incrementale</a></li>
+            <li><a href="#derivata">Derivata</a></li>
+            <li><a href="#notazioni">Notazioni</a></li>
+            <li><a href="#derivate-di-grado-superiore">Derivate di grado superiore</a></li>
+            <li><a href="#notazioni-per-derivate-di-grado-superiore">Notazioni per derivate di grado superiore</a></li>
+            <li><a href="#derivate-comuni">Derivate comuni</a></li>
+            <li><a href="#regole-di-calcolo">Regole di calcolo</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

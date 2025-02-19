@@ -3,43 +3,27 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Dato l&rsquo;insieme $\mathbb{A}$ e due operazioni $*_1,*_2: \mathbb{A} \times \mathbb{A} \to \mathbb{A}$ tali che:
-
-$(\mathbb{A}, *_1)$ sia un gruppo abeliano
-$*_2$ è associativa
-valgono le leggi distributive tra le due operazioni
-e.g.:
-$(\mathbb{Z}, &#43;, *)$ è un anello
-$(\mathbb{R}[x], &#43;, *)$ è un anello
-$(\mathbb{M}(n), &#43;, *)$ è un anello
-
-
-  Condizioni particolari
+<meta name="description" content="
+  Corso Analisi T1
   #
 
-
-se $*_2$ è commutativa, l&rsquo;anello si dice commutativo
-se $*_2$ ha un elemento neutro, $\mathbb{A}$ si dice: &ldquo;anello con unità&rdquo;
-se $(\mathbb{A} \backslash \vec{0}, *_2)$ è un gruppo, allora $\mathbb{A}$ si dice anello di divisione o con corpo
-quando il corpo è commutativo, $\mathbb{A}$ è un campo
-">
+TODO">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/appunti/Algebra-e-Geometria/Anelli/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/appunti/Analisi-T1/">
   <meta property="og:site_name" content="Appunti">
   <meta property="og:title" content="Appunti">
-  <meta property="og:description" content="Dato l’insieme $\mathbb{A}$ e due operazioni $*_1,*_2: \mathbb{A} \times \mathbb{A} \to \mathbb{A}$ tali che:
-$(\mathbb{A}, *_1)$ sia un gruppo abeliano $*_2$ è associativa valgono le leggi distributive tra le due operazioni e.g.: $(\mathbb{Z}, &#43;, *)$ è un anello $(\mathbb{R}[x], &#43;, *)$ è un anello $(\mathbb{M}(n), &#43;, *)$ è un anello Condizioni particolari # se $*_2$ è commutativa, l’anello si dice commutativo se $*_2$ ha un elemento neutro, $\mathbb{A}$ si dice: “anello con unità” se $(\mathbb{A} \backslash \vec{0}, *_2)$ è un gruppo, allora $\mathbb{A}$ si dice anello di divisione o con corpo quando il corpo è commutativo, $\mathbb{A}$ è un campo">
+  <meta property="og:description" content="Corso Analisi T1 # TODO">
   <meta property="og:locale" content="it_IT">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="appunti">
-<title>Anelli | Appunti</title>
+  <meta property="og:type" content="website">
+<title>Analisi T1 | Appunti</title>
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="http://localhost:1313/appunti/Algebra-e-Geometria/Anelli/">
+<link rel="canonical" href="http://localhost:1313/appunti/Analisi-T1/">
 <link rel="stylesheet" href="/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css" integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.f47c069b289a231924dfdaa426365d5b5eec59950f18b6b663bedaeb82f78c1c.js" integrity="sha256-9HwGmyiaIxkk39qkJjZdW17sWZUPGLa2Y77a64L3jBw=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/appunti/Analisi-T1/index.xml" title="Appunti" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -116,7 +100,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/appunti/Algebra-e-Geometria/Anelli/" class="active">Anelli</a>
+    <a href="/appunti/Algebra-e-Geometria/Anelli/" class="">Anelli</a>
   
 
         </li>
@@ -238,7 +222,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/appunti/Analisi-T1/" class="">Analisi T1</a>
+    <a href="/appunti/Analisi-T1/" class="active">Analisi T1</a>
   
 
           
@@ -419,7 +403,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>Anelli</h3>
+  <h3>Analisi T1</h3>
 
   <label for="toc-control">
     
@@ -435,15 +419,7 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#condizioni-particolari">Condizioni particolari</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
+    <li><a href="#corso-analisi-t1">Corso Analisi T1</a></li>
   </ul>
 </nav>
 
@@ -456,26 +432,11 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown book-article"><p>Dato l&rsquo;insieme $\mathbb{A}$ e due operazioni $*_1,*_2: \mathbb{A} \times \mathbb{A} \to \mathbb{A}$ tali che:</p>
-<ul>
-<li>$(\mathbb{A}, *_1)$ sia un gruppo abeliano</li>
-<li>$*_2$ è associativa</li>
-<li>valgono le leggi distributive tra le due operazioni
-e.g.:</li>
-<li>$(\mathbb{Z}, +, *)$ è un anello</li>
-<li>$(\mathbb{R}[x], +, *)$ è un anello</li>
-<li>$(\mathbb{M}(n), +, *)$ è un anello</li>
-</ul>
-<h3 id="condizioni-particolari">
-  Condizioni particolari
-  <a class="anchor" href="#condizioni-particolari">#</a>
-</h3>
-<ul>
-<li>se $*_2$ è commutativa, l&rsquo;anello si dice commutativo</li>
-<li>se $*_2$ ha un elemento neutro, $\mathbb{A}$ si dice: &ldquo;anello con unità&rdquo;</li>
-<li>se $(\mathbb{A} \backslash \vec{0}, *_2)$ è un gruppo, allora $\mathbb{A}$ si dice anello di divisione o con corpo</li>
-<li>quando il corpo è commutativo, $\mathbb{A}$ è un <strong>campo</strong></li>
-</ul>
+  <article class="markdown book-article"><h1 id="corso-analisi-t1">
+  Corso Analisi T1
+  <a class="anchor" href="#corso-analisi-t1">#</a>
+</h1>
+<p><em>TODO</em></p>
 </article>
  
       
@@ -517,15 +478,7 @@ e.g.:</li>
   
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#condizioni-particolari">Condizioni particolari</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
+    <li><a href="#corso-analisi-t1">Corso Analisi T1</a></li>
   </ul>
 </nav>
 

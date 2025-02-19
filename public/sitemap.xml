@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/</loc>
+  </url><url>
+    <loc>http://localhost:1313/appunti/Algebra-e-Geometria/</loc>
+  </url><url>
     <loc>http://localhost:1313/appunti/Algebra-e-Geometria/Anelli/</loc>
   </url><url>
     <loc>http://localhost:1313/appunti/Algebra-e-Geometria/Combinazione-lineare/</loc>
@@ -20,6 +24,8 @@
   </url><url>
     <loc>http://localhost:1313/appunti/Algebra-e-Geometria/Vettori/</loc>
   </url><url>
+    <loc>http://localhost:1313/appunti/Analisi-T1/</loc>
+  </url><url>
     <loc>http://localhost:1313/appunti/Analisi-T1/Derivate/</loc>
   </url><url>
     <loc>http://localhost:1313/appunti/Analisi-T1/Equazioni-differenziali/</loc>
@@ -36,9 +42,9 @@
   </url><url>
     <loc>http://localhost:1313/appunti/Analisi-T1/Taylor/</loc>
   </url><url>
-    <loc>http://localhost:1313/appunti/Analisi-T2/Spazi-vettoriali/</loc>
+    <loc>http://localhost:1313/appunti/Analisi-T2/</loc>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:1313/appunti/Analisi-T2/Spazi-vettoriali/</loc>
   </url><url>
     <loc>http://localhost:1313/appunti/</loc>
   </url><url>

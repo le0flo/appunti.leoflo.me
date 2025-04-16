@@ -22,7 +22,7 @@ inline = [['$', '$']]
 [params]
 math = true
 BookTheme = 'light'
-BookToC = true
+BookToC = false
 BookLogo = 'favicon.png'
 BookSection = 'appunti'
 BookDateFormat = 'Jan 2, 2006'

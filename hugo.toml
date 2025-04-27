@@ -23,12 +23,8 @@ inline = [['$', '$']]
 math = true
 BookTheme = 'light'
 BookToC = false
-BookLogo = 'favicon.png'
 BookSection = 'appunti'
-BookDateFormat = 'Jan 2, 2006'
 BookSearch = true
-BookRepo = 'https://github.com/le0flo/appunti'
-BookCommitPath = 'commit'
 
 [params.meta]
 favicon = false

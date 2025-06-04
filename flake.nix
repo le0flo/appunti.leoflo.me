@@ -1,5 +1,5 @@
 {
-  description = "Sito per gli appunti";
+  description = "appunti.leoflo.me";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

@@ -8,4 +8,10 @@
 
 1. Initialize the submodules with `git submodule init`
 2. Update them using `git submodule update --remote`
-3. Generate the static website by running `hugo build`
+
+### Usage
+
+```sh
+cd appunti.leoflo.me
+hugo build # Generates a static website under the 'public/' folder that can be served by any http server
+```

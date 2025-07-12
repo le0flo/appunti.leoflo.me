@@ -11,5 +11,5 @@ git clone https://github.com/le0flo/appunti.leoflo.me.git
 cd appunti.leoflo.me
 git submodule init
 git submodule update --remote
-hugo build
+hugo build # Generates a static website under the 'public/' folder
 ```

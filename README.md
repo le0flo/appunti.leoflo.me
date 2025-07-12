@@ -4,14 +4,12 @@
 
 - [Hugo](https://gohugo.io/)
 
-### Compilation
-
-1. Initialize the submodules with `git submodule init`
-2. Update them using `git submodule update --remote`
-
 ### Usage
 
 ```sh
+git clone https://github.com/le0flo/appunti.leoflo.me.git
 cd appunti.leoflo.me
-hugo build # Generates a static website under the 'public/' folder that can be served by any http server
+git submodule init
+git submodule update --remote
+hugo build
 ```

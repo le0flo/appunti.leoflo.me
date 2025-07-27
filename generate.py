@@ -2,6 +2,7 @@ from pathlib import Path
 from typing import Any, List
 from bs4 import BeautifulSoup
 from bs4.element import Tag
+from operator import itemgetter
 import argparse, tomllib, markdown, shutil
 
 def readConfig(path: Path) -> dict[str, Any]:
@@ -36,13 +37,14 @@ def findAppunti(path: Path, config: dict[str, Any]) -> List:
                         "file": file,
                     })
 
+            
             appunti.append({
                 "name": folder.suffix[2:],
-                "id": folder.suffix[2:].lower().replace(" ", "-"),
-                "list": files,
+                "id": folder.name.lower().replace(". ", "-").replace(" ", "-"),
+                "list": sorted(files, key=itemgetter("id")),
             })
 
-    return appunti
+    return sorted(appunti, key=itemgetter("id"))
 
 def prepareOutputFolder(path: Path, config: dict[str, Any]) -> Path:
     assets = path.joinpath("assets")

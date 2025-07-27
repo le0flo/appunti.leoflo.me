@@ -1,0 +1,117 @@
+@font-face {
+    font-family: SUSE;
+    src: url(assets/fonts/SUSE/SUSE-VariableFont_wght.ttf);
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: SUSE;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+
+    padding: 35px 0;
+
+    display: grid;
+    align-items: start;
+    justify-items: center;
+
+    background-color: #333333;
+    color: #ededed;
+}
+
+a, b {
+    color: #e3ef7e;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+input[type="text"] {
+    width: 200px;
+    height: 35px;
+
+    background-color: #333333;
+    color: #adadad;
+
+    border: solid 1px #e3ef7e;
+    border-radius: 5px;
+
+    text-align: center;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+ul {
+    list-style-type: square;
+}
+
+li {
+    margin: 5px;
+
+    &::marker {
+        color: #adadad;
+    }
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+
+    text-align: center;
+
+    border: 1px solid #adadad;
+}
+
+mjx-container {
+    margin: 5px;
+}
+
+#root {
+    width: 80vw;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & > div {
+        width: 100%;
+    }
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    & > h1 > a {
+        text-decoration: none;
+    }
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    place-items: start;
+
+    & > * {
+        margin: 5px 0;
+    }
+}

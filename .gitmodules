@@ -1,0 +1,3 @@
+[submodule "appunti"]
+	path = appunti
+	url = https://github.com/le0flo/appunti

@@ -3,7 +3,6 @@ content_dir = "appunti"
 
 [home]
 content = """
-Per leggere gli appunti, cerca l'argomento nella input box soprastante.
 Questi appunti sono stati presi da [me](https://leoflo.me).
 Potrebbero esserci errori di qualunque genere, perciò attenti e confrontate sempre tutto ciò che leggete, specialmente da siti come questi.
 Se vuoi vedere come funziona questo sito, visita la repository su [GitHub](https://github.com/le0flo/appunti.leoflo.me).

@@ -1,15 +1,15 @@
 # Notes website
 
 A simple python program that generates a static website that hosts my [notes](https://github.com/le0flo/appunti).
-It even has a `config.toml` to tweak the website's generation.
+It even has a `config.toml` that tweaks the website's generation.
 
 ### Usage
 
 Download the repo:
 
 ```sh
-git clone https://github.com/le0flo/hermes.git
-cd hermes
+git clone https://github.com/le0flo/appunti.leoflo.me
+cd appunti.leoflo.me
 ```
 
 Initialize the submodule:

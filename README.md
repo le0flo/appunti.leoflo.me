@@ -10,20 +10,17 @@ Download the repo:
 ```sh
 git clone https://github.com/le0flo/appunti.leoflo.me
 cd appunti.leoflo.me
+git submodule update --init
 ```
 
-Initialize the submodule:
-
-```sh
-git submodule init
-git submodule update --remote
-```
-
-Generate the website:
+Download the required dependencies:
 
 ```sh
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-python generate.py .
 ```
+
+Available commands:
+
+- `python generate.py .` generates the static website from a given root path

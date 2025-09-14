@@ -3,26 +3,31 @@ from typing import Any, List
 from bs4 import BeautifulSoup
 from bs4.element import Tag
 from operator import itemgetter
-import argparse, tomllib, markdown, shutil
+import markdown, shutil
 
-def readConfig(path: Path) -> dict[str, Any]:
-    config = path.joinpath("config.toml")
+from config import config
 
-    if config.exists():
-        return tomllib.loads(config.read_text())
+def prepare_dist(path: Path) -> Path:
+    template = path.joinpath("template")
+    output = path.joinpath("dist")
+    output.mkdir(exist_ok=True, parents=True)
+    output.joinpath("pages").mkdir(exist_ok=True)
 
-    exit(0x01)
+    shutil.copyfile(template.joinpath("style.css"), output.joinpath("style.css"))
+    shutil.copytree(template.joinpath("assets"), output.joinpath("assets"), dirs_exist_ok=True)
 
-def readTemplate(path: Path) -> str:
-    index = path.joinpath("index.html")
+    return output
+
+def template_read(path: Path) -> str:
+    index = path.joinpath("template/index.html")
 
     if index.exists():
         return index.read_text()
 
     exit(0x02)
 
-def findAppunti(path: Path, config: dict[str, Any]) -> List:
-    appunti_path = path.joinpath(config["content_dir"])
+def appunti_read(path: Path) -> List:
+    appunti_path = path.joinpath("appunti")
     appunti = []
 
     for folder in appunti_path.iterdir():
@@ -37,7 +42,7 @@ def findAppunti(path: Path, config: dict[str, Any]) -> List:
                         "file": file,
                     })
 
-            
+
             appunti.append({
                 "name": folder.suffix[2:],
                 "id": folder.name.lower().replace(". ", "-").replace(" ", "-"),
@@ -46,18 +51,7 @@ def findAppunti(path: Path, config: dict[str, Any]) -> List:
 
     return sorted(appunti, key=itemgetter("id"))
 
-def prepareOutputFolder(path: Path, config: dict[str, Any]) -> Path:
-    assets = path.joinpath("assets")
-    output = path.joinpath(config["output_dir"])
-    output.mkdir(exist_ok=True, parents=True)
-
-    output.joinpath("pages").mkdir(exist_ok=True)
-    shutil.copyfile(root_path.joinpath("style.css"), output.joinpath("style.css"))
-    shutil.copytree(assets, output.joinpath("assets"), dirs_exist_ok=True)
-
-    return output
-
-def generateSummary(template: BeautifulSoup, tag: Tag, appunti: List):
+def appunti_summary(template: BeautifulSoup, tag: Tag, appunti: List):
     for topic in appunti:
         topic_el = template.new_tag("li")
         topic_list = template.new_tag("ol")
@@ -75,7 +69,7 @@ def generateSummary(template: BeautifulSoup, tag: Tag, appunti: List):
         topic_el.append(topic_list)
         tag.append(topic_el)
 
-def writeHome(path: Path, config: dict[str, Any], template_str: str, appunti: List):
+def write_home(path: Path, template_str: str, appunti: List):
     template = BeautifulSoup(template_str, features="html.parser")
     content = BeautifulSoup(markdown.markdown(config["home"]["content"]), features="html.parser")
 
@@ -85,11 +79,11 @@ def writeHome(path: Path, config: dict[str, Any], template_str: str, appunti: Li
 
     summary = template.find(id="summary")
     if isinstance(summary, Tag):
-        generateSummary(template, summary, appunti)
+        appunti_summary(template, summary, appunti)
 
     path.joinpath("index.html").write_text(str(template.prettify()))
 
-def writePage(path: Path, template: BeautifulSoup, page: dict[str, Any]):
+def write_page(path: Path, template: BeautifulSoup, page: dict[str, Any]):
     page_file = path.joinpath(page["id"] + ".html")
     appunti = BeautifulSoup(markdown.markdown(page["file"].read_text(), extensions=['tables']), features="html.parser")
 
@@ -100,14 +94,14 @@ def writePage(path: Path, template: BeautifulSoup, page: dict[str, Any]):
 
     page_file.write_text(str(template.prettify()))
 
-def writePages(path: Path, config: dict[str, Any], template_str: str, appunti: List):
+def write_pages(path: Path, template_str: str, appunti: List):
     pages = path.joinpath("pages")
     template = BeautifulSoup(template_str, features="html.parser")
-    header = BeautifulSoup(config["pages"]["header"], features="html.parser")
+    header = BeautifulSoup(config["overrides"]["header"], features="html.parser")
 
     summary = template.find(id="summary")
     if isinstance(summary, Tag):
-        generateSummary(template, summary, appunti)
+        appunti_summary(template, summary, appunti)
 
     header_el = template.find("head")
     if isinstance(header_el, Tag):
@@ -118,19 +112,12 @@ def writePages(path: Path, config: dict[str, Any], template_str: str, appunti: L
         topic_path.mkdir(exist_ok=True)
 
         for page in topic["list"]:
-            writePage(topic_path, template, page)
+            write_page(topic_path, template, page)
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(prog="python generate.py", usage="%(prog)s [options] path")
-    parser.add_argument("path", type=Path, help="The location of the \"index.html\" and \"assets/appunti\" folder.")
-    args = parser.parse_args()
+def generate(path: Path):
+    output = prepare_dist(path)
+    template = template_read(path)
+    appunti = appunti_read(path)
 
-    root_path = Path(args.path)
-
-    config = readConfig(root_path)
-    template = readTemplate(root_path)
-    appunti_list = findAppunti(root_path, config)
-
-    output_path = prepareOutputFolder(root_path, config)
-    writeHome(output_path, config, template, appunti_list)
-    writePages(output_path, config, template, appunti_list)
+    write_home(output, template, appunti)
+    write_pages(output, template, appunti)

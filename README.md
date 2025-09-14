@@ -1,7 +1,7 @@
 # Notes website
 
-A simple python program that generates a static website that hosts my [notes](https://github.com/le0flo/appunti).
-It even has a `config.toml` that tweaks the website's generation.
+Simple python program that generates a static website for my [notes](https://github.com/le0flo/appunti).
+It even has a configuration that you can tweak.
 
 ### Usage
 
@@ -23,4 +23,4 @@ pip install -r requirements.txt
 
 Available commands:
 
-- `python generate.py .` generates the static website from a given root path
+- `python src/main.py .` generates the static website from a given root path

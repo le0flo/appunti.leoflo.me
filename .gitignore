@@ -1,3 +1,7 @@
-venv/
+# Project
+configuration/
 dist/
+
+# Python
+venv/
 .ropeproject/
